@@ -15,6 +15,8 @@ class PretendViewController: UIViewController {
     
     var audioPlayer: AVAudioPlayer!
     
+    var timeSpent = 0
+    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +25,32 @@ class PretendViewController: UIViewController {
     }
     
     
-    
     @IBAction func pickUpCall(_ sender: Any) {
         
         timeCounter.isHidden = false
         
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(coutUpTime), userInfo: nil, repeats: true)
+        
+        playSpeakerVoice()
+        
+    }
+    
+    
+    func coutUpTime(){
+        timeSpent += 1
+        timeFormatter()
+    }
+    
+    
+    func timeFormatter(){
+        var sec = timeSpent % 60
+        var min = timeSpent / 60
+        
+        timeCounter.text = String(format: "%02d:%02d", min, sec)
+    }
+    
+    
+    func playSpeakerVoice(){
         if let url = Bundle.main.url(forResource: "speakerVoice", withExtension: "mp3"){
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: url)
@@ -44,6 +67,7 @@ class PretendViewController: UIViewController {
     @IBAction func hangUpCall(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         
+        timer.invalidate()
         audioPlayer?.stop()
     }
     
