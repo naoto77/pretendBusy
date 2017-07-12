@@ -68,10 +68,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkT-RH-Th5">
                                 <rect key="frame" x="251" y="503" width="64" height="64"/>
                                 <state key="normal" image="pick_call.png"/>
+                                <connections>
+                                    <action selector="pickUpCall:" destination="vdO-Gc-ivg" eventType="touchUpInside" id="wp6-16-nfg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdK-H9-yjX">
                                 <rect key="frame" x="60" y="503" width="64" height="64"/>
                                 <state key="normal" image="end_call.png"/>
+                                <connections>
+                                    <action selector="hangUpCall:" destination="vdO-Gc-ivg" eventType="touchUpInside" id="zrP-Ji-Pjn"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4i-FT-oOz">
                                 <rect key="frame" x="156" y="386" width="63" height="21"/>
@@ -94,6 +100,9 @@
                             <constraint firstItem="RdF-dJ-Jji" firstAttribute="top" secondItem="DkT-RH-Th5" secondAttribute="bottom" constant="100" id="xYr-Lh-ifd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timeCounter" destination="i4i-FT-oOz" id="B5z-Xc-37A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQ0-Np-zFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
