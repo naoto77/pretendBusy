@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="PretendBusy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,90 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtA-vH-Hag">
+                                <rect key="frame" x="97" y="389" width="181" height="128"/>
+                                <state key="normal" image="call_icon.png"/>
+                                <connections>
+                                    <segue destination="vdO-Gc-ivg" kind="presentation" id="ajt-Cj-nBJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pretend busy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwA-1l-qVQ">
+                                <rect key="frame" x="38" y="149" width="299" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.067289739605045154" green="0.85856202411167515" blue="0.10760248701480714" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VtA-vH-Hag" secondAttribute="bottom" constant="150" id="5Ne-7E-6LH"/>
+                            <constraint firstAttribute="trailing" secondItem="VtA-vH-Hag" secondAttribute="trailing" constant="97" id="N4b-LZ-pgt"/>
+                            <constraint firstItem="VtA-vH-Hag" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="97" id="hJ0-Zd-H6r"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Pretend View Controller-->
+        <scene sceneID="MRe-2Z-Bxj">
+            <objects>
+                <viewController id="vdO-Gc-ivg" customClass="PretendViewController" customModule="PretendBusy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8YI-Pn-tmN"/>
+                        <viewControllerLayoutGuide type="bottom" id="RdF-dJ-Jji"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x0K-Ca-lhp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="caller.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LPW-sJ-IC0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="290" id="qgU-Wi-j0Q"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkT-RH-Th5">
+                                <rect key="frame" x="251" y="503" width="64" height="64"/>
+                                <state key="normal" image="pick_call.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdK-H9-yjX">
+                                <rect key="frame" x="60" y="503" width="64" height="64"/>
+                                <state key="normal" image="end_call.png"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4i-FT-oOz">
+                                <rect key="frame" x="156" y="386" width="63" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IdK-H9-yjX" firstAttribute="leading" secondItem="x0K-Ca-lhp" secondAttribute="leading" constant="60" id="14q-vO-Ypd"/>
+                            <constraint firstItem="RdF-dJ-Jji" firstAttribute="top" secondItem="IdK-H9-yjX" secondAttribute="bottom" constant="100" id="Bz9-CY-sSD"/>
+                            <constraint firstAttribute="trailing" secondItem="LPW-sJ-IC0" secondAttribute="trailing" id="Dwx-hs-5iI"/>
+                            <constraint firstAttribute="trailing" secondItem="i4i-FT-oOz" secondAttribute="trailing" constant="156" id="MBp-ni-QFR"/>
+                            <constraint firstItem="RdF-dJ-Jji" firstAttribute="top" secondItem="i4i-FT-oOz" secondAttribute="bottom" constant="260" id="Nve-0K-ldA"/>
+                            <constraint firstItem="i4i-FT-oOz" firstAttribute="leading" secondItem="x0K-Ca-lhp" secondAttribute="leading" constant="156" id="bSq-ZF-Wii"/>
+                            <constraint firstAttribute="trailing" secondItem="DkT-RH-Th5" secondAttribute="trailing" constant="60" id="iQn-NK-u49"/>
+                            <constraint firstItem="LPW-sJ-IC0" firstAttribute="top" secondItem="x0K-Ca-lhp" secondAttribute="top" id="kKm-9d-Vmw"/>
+                            <constraint firstItem="LPW-sJ-IC0" firstAttribute="leading" secondItem="x0K-Ca-lhp" secondAttribute="leading" id="uv4-Nk-gBO"/>
+                            <constraint firstItem="RdF-dJ-Jji" firstAttribute="top" secondItem="DkT-RH-Th5" secondAttribute="bottom" constant="100" id="xYr-Lh-ifd"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQ0-Np-zFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="138.98050974512745"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="call_icon.png" width="128" height="128"/>
+        <image name="caller.jpg" width="960" height="640"/>
+        <image name="end_call.png" width="64" height="64"/>
+        <image name="pick_call.png" width="64" height="64"/>
+    </resources>
 </document>
