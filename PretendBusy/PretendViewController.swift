@@ -7,29 +7,51 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PretendViewController: UIViewController {
-
+    
+    @IBOutlet var timeCounter: UILabel!
+    
+    var audioPlayer: AVAudioPlayer!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        timeCounter.isHidden = true
     }
-
+    
+    
+    
+    @IBAction func pickUpCall(_ sender: Any) {
+        
+        timeCounter.isHidden = false
+        
+        if let url = Bundle.main.url(forResource: "speakerVoice", withExtension: "mp3"){
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.play()
+            }catch {
+                audioPlayer = nil
+            }
+        }else {
+            fatalError("Url is nil.")
+        }
+    }
+    
+    
+    @IBAction func hangUpCall(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        
+        audioPlayer?.stop()
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
